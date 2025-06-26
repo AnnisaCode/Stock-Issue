@@ -230,7 +230,7 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import { useRouter, useRoute } from 'vue-router'
+import { useRouter } from 'vue-router'
 
 interface StockIssueDetail {
   id: string;
@@ -254,7 +254,6 @@ interface StockIssue {
 }
 
 const router = useRouter()
-const route = useRoute()
 
 // Props
 const props = defineProps<{ id: string }>()

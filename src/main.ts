@@ -1,9 +1,13 @@
 import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 import './style.css'
+// @ts-ignore
 import App from './App.vue'
+// @ts-ignore
 import Login from './components/Login.vue'
+// @ts-ignore
 import Dashboard from './components/Dashboard.vue'
+// @ts-ignore
 import StockIssueDetail from './components/StockIssueDetail.vue'
 
 const routes = [
@@ -19,7 +23,7 @@ const router = createRouter({
 })
 
 // Simple auth guard
-router.beforeEach((to, from, next) => {
+router.beforeEach((to, _from, next) => {
   const isAuthenticated = localStorage.getItem('isAuthenticated') === 'true'
   
   if (to.path !== '/login' && !isAuthenticated) {
