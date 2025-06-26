@@ -52,25 +52,14 @@
       ]
     },
     {
-      "id": "018716ad-3cfa-47cb-bd2d-c7fb1883594b",
-      "issueNumber": "21",
+      "id": "a943e853-04d6-4f34-9b90-a57e521cd7b1",
+      "issueNumber": "1",
       "date": "2025-06-26",
-      "department": "IT",
+      "department": "Finace",
       "requestedBy": "Annisa",
       "status": "pending",
       "description": "",
-      "createdAt": "2025-06-26T09:09:37.356Z",
-      "details": []
-    },
-    {
-      "id": "2c4a835d-7dce-4ff4-86cc-144a62864923",
-      "issueNumber": "2",
-      "date": "2025-06-26",
-      "department": "Finance",
-      "requestedBy": "Annisa",
-      "status": "approved",
-      "description": "",
-      "createdAt": "2025-06-26T09:32:04.894Z",
+      "createdAt": "2025-06-26T09:39:07.592Z",
       "details": []
     }
   ]
