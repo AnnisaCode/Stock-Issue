@@ -50,6 +50,17 @@
           "remarks": "Pending approval"
         }
       ]
+    },
+    {
+      "id": "018716ad-3cfa-47cb-bd2d-c7fb1883594b",
+      "issueNumber": "21",
+      "date": "2025-06-26",
+      "department": "IT",
+      "requestedBy": "Annisa",
+      "status": "pending",
+      "description": "",
+      "createdAt": "2025-06-26T09:09:37.356Z",
+      "details": []
     }
   ]
 }

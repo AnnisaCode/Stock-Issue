@@ -51,6 +51,8 @@ This will start:
 ## 📁 Project Structure
 
 ```
+├── api/
+│   └── index.js                # Express server for Vercel Serverless Functions
 ├── src/
 │   ├── components/
 │   │   ├── Login.vue           # Login page with authentication
@@ -60,8 +62,7 @@ This will start:
 │   ├── main.ts                 # Application entry point with routing
 │   └── style.css               # Global styles and themes
 ├── server/
-│   ├── index.js                # Express server with REST API
-│   └── data.json               # JSON database file
+│   └── data.json               # JSON database file (used by API)
 ├── package.json                # Dependencies and scripts
 ├── tailwind.config.js          # TailwindCSS configuration
 └── vite.config.ts              # Vite configuration with proxy
@@ -110,17 +111,12 @@ This will start:
 
 ## 🚀 Deployment
 
-### For Vercel Deployment:
+This project is configured for easy deployment on **Vercel**.
 
-1. Build the frontend:
-```bash
-npm run build
-```
-
-2. For backend deployment, use the start script:
-```bash
-npm start
-```
+1.  **Connect your GitHub repository to Vercel.**
+2.  Vercel will automatically detect that it's a **Vite** project.
+3.  Vercel will also automatically find the Express app in the `api` directory and deploy it as a **Serverless Function**.
+4.  No extra configuration is needed. Just click **Deploy**!
 
 The application is structured to be easily deployable on Vercel with proper configuration for both frontend and backend.
 
@@ -144,10 +140,10 @@ The application is structured to be easily deployable on Vercel with proper conf
 
 - `npm run dev` - Start both frontend and backend in development mode
 - `npm run dev:frontend` - Start only frontend development server
-- `npm run dev:backend` - Start only backend server
+- `npm run dev:backend` - Start only backend server (`node api/index.js`)
 - `npm run build` - Build for production
 - `npm run preview` - Preview production build
-- `npm start` - Start production server
+- `npm start` - Start production server (for non-Vercel environments)
 
 ## 📋 Test Case Requirements Met
 
