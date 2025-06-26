@@ -68,7 +68,7 @@
         <!-- Demo Credentials -->
         <div class="mt-6 p-4 bg-purple-50 rounded-xl">
           <p class="text-sm text-purple-700 font-medium mb-2">Demo Credentials:</p>
-          <p class="text-xs text-purple-600">Email: admin@elsoft.com</p>
+          <p class="text-xs text-purple-600">Email: admin@stockissue.com</p>
           <p class="text-xs text-purple-600">Password: admin123</p>
         </div>
       </div>
@@ -91,7 +91,7 @@ const handleLogin = async () => {
   error.value = ''
 
   // Simple frontend validation (dummy authentication)
-  if (email.value === 'admin@elsoft.com' && password.value === 'admin123') {
+  if (email.value === 'admin@stockissue.com' && password.value === 'admin123') {
     localStorage.setItem('isAuthenticated', 'true')
     localStorage.setItem('userEmail', email.value)
     

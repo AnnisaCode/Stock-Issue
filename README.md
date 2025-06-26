@@ -45,7 +45,7 @@ This will start:
 - Backend API: http://localhost:3001
 
 ### Demo Credentials
-- **Email**: admin@elsoft.com
+- **Email**: admin@stockissue.com
 - **Password**: admin123
 
 ## 📁 Project Structure
