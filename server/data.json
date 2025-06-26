@@ -50,6 +50,27 @@
           "remarks": "Pending approval"
         }
       ]
+    },
+    {
+      "id": "43365649-bfea-455f-b8c7-ee64412e5935",
+      "issueNumber": "1",
+      "date": "2025-06-26",
+      "department": "Management",
+      "requestedBy": "Annisa",
+      "status": "approved",
+      "description": "",
+      "createdAt": "2025-06-26T06:48:33.755Z",
+      "details": [
+        {
+          "id": "6a9d957e-9de9-48a5-a272-5cb501a5adc4",
+          "itemCode": "12",
+          "itemName": "Something",
+          "requestedQty": 100,
+          "approvedQty": 100,
+          "unit": "1",
+          "remarks": ""
+        }
+      ]
     }
   ]
 }

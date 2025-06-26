@@ -213,7 +213,6 @@ interface StockIssue {
 const router = useRouter()
 
 // State
-declare const stockIssues: any;
 const stockIssues = ref<StockIssue[]>([])
 const loading = ref(true)
 const searchQuery = ref('')
