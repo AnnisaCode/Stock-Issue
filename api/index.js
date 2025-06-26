@@ -2,8 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import { v4 as uuidv4 } from 'uuid';
 
-// Impor data JSON secara langsung
-import jsonData from '../server/data.json';
+// Impor data JSON secara langsung dengan import assertion
+import jsonData from '../server/data.json' assert { type: 'json' };
 
 const app = express();
 const PORT = 3001;
