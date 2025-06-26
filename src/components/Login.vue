@@ -75,7 +75,7 @@
     </div>
     
     <!-- Footer -->
-    <footer class="absolute bottom-4 text-center">
+    <footer class="mt-8 text-center">
       <p class="text-sm text-gray-500">
         Crafted with ❤️ by <a href="https://github.com/AnnisaCode" target="_blank" class="font-semibold text-primary-600 hover:underline">AnnisaCode</a>
       </p>
