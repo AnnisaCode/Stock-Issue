@@ -3,13 +3,32 @@ import cors from 'cors';
 import fs from 'fs/promises';
 import path from 'path';
 import { v4 as uuidv4 } from 'uuid';
+import DOMPurify from 'dompurify';
+import { JSDOM } from 'jsdom';
 
 const app = express();
 const PORT = 3001;
 
+// Setup DOMPurify for server-side use
+const window = new JSDOM('').window;
+const purify = DOMPurify(window);
+
 // Middleware
 app.use(cors());
 app.use(express.json());
+
+// Middleware for input sanitization
+app.use((req, res, next) => {
+    // Sanitize req.body
+    if (req.body) {
+        for (const key in req.body) {
+            if (typeof req.body[key] === 'string') {
+                req.body[key] = purify.sanitize(req.body[key]);
+            }
+        }
+    }
+    next();
+});
 
 // Data file path
 const DATA_FILE = path.join(process.cwd(), 'server', 'data.json');

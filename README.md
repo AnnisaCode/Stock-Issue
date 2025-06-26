@@ -128,6 +128,15 @@ This will start:
 - `npm run build`: Build the frontend for production.
 - `npm start`: Run the backend server for production.
 
+## 🔒 Security Measures
+
+To enhance the application's security, the following measures have been implemented:
+
+- **Backend Input Sanitization**: All incoming data from `POST` and `PUT` requests is automatically sanitized on the server using the `DOMPurify` library. This prevents Cross-Site Scripting (XSS) attacks by stripping out any potentially malicious HTML or JavaScript code before it is saved to the database.
+- **Frontend Display Protection**: The frontend is built with Vue 3, which automatically escapes HTML content in standard data bindings (`{{ ... }}`). This provides an additional layer of defense against XSS by ensuring that any potentially malicious data that might have bypassed server sanitization is rendered as plain text, not executed as code.
+
+For a real-world production application, further security steps such as password hashing (e.g., with `bcrypt`), environment variable management for secrets, rate limiting, and comprehensive user role-based access control would be recommended.
+
 ## 📋 Test Case Requirements Met
 
 ✅ Login page with dummy validation  
