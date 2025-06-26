@@ -14,72 +14,6 @@ app.use(express.json());
 // Data file path
 const DATA_FILE = path.join(process.cwd(), 'server', 'data.json');
 
-// ... (seluruh isi server/index.js setelah ini tetap sama, tidak perlu diubah kecuali path DATA_FILE)
-
-// Initialize data file if it doesn't exist
-async function initializeData() {
-    try {
-        await fs.access(DATA_FILE);
-    } catch {
-        const initialData = {
-            stockIssues: [
-                {
-                    id: '1',
-                    issueNumber: 'SI-2024-001',
-                    date: '2024-01-15',
-                    department: 'Production',
-                    requestedBy: 'Sarah Johnson',
-                    status: 'approved',
-                    description: 'Monthly production supplies',
-                    createdAt: '2024-01-15T08:00:00Z',
-                    details: [
-                        {
-                            id: '1-1',
-                            itemCode: 'ITM001',
-                            itemName: 'Steel Rod 10mm',
-                            requestedQty: 100,
-                            approvedQty: 95,
-                            unit: 'pcs',
-                            remarks: 'Quality checked'
-                        },
-                        {
-                            id: '1-2',
-                            itemCode: 'ITM002',
-                            itemName: 'Welding Wire',
-                            requestedQty: 50,
-                            approvedQty: 50,
-                            unit: 'kg',
-                            remarks: 'Standard quality'
-                        }
-                    ]
-                },
-                {
-                    id: '2',
-                    issueNumber: 'SI-2024-002',
-                    date: '2024-01-16',
-                    department: 'Maintenance',
-                    requestedBy: 'Mike Chen',
-                    status: 'pending',
-                    description: 'Equipment maintenance supplies',
-                    createdAt: '2024-01-16T09:30:00Z',
-                    details: [
-                        {
-                            id: '2-1',
-                            itemCode: 'MTN001',
-                            itemName: 'Engine Oil SAE 40',
-                            requestedQty: 20,
-                            approvedQty: 0,
-                            unit: 'liters',
-                            remarks: 'Pending approval'
-                        }
-                    ]
-                }
-            ]
-        };
-        await fs.writeFile(DATA_FILE, JSON.stringify(initialData, null, 2));
-    }
-}
-
 // Helper functions
 async function readData() {
     const data = await fs.readFile(DATA_FILE, 'utf8');
@@ -87,6 +21,11 @@ async function readData() {
 }
 
 async function writeData(data) {
+    // On Vercel, the filesystem is read-only. We'll skip writing to prevent a crash.
+    if (process.env.VERCEL) {
+        console.log("Vercel environment detected. Skipping file write.");
+        return;
+    }
     await fs.writeFile(DATA_FILE, JSON.stringify(data, null, 2));
 }
 
@@ -98,6 +37,7 @@ app.get('/stockissue', async (req, res) => {
         const data = await readData();
         res.json(data.stockIssues);
     } catch (error) {
+        console.error('API Error:', error);
         res.status(500).json({ error: 'Failed to fetch stock issues' });
     }
 });

@@ -61,6 +61,17 @@
       "description": "",
       "createdAt": "2025-06-26T09:09:37.356Z",
       "details": []
+    },
+    {
+      "id": "2c4a835d-7dce-4ff4-86cc-144a62864923",
+      "issueNumber": "2",
+      "date": "2025-06-26",
+      "department": "Finance",
+      "requestedBy": "Annisa",
+      "status": "approved",
+      "description": "",
+      "createdAt": "2025-06-26T09:32:04.894Z",
+      "details": []
     }
   ]
 }
