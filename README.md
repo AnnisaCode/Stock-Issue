@@ -190,5 +190,3 @@ This project demonstrates modern full-stack development practices with a beautif
    - User can log out to end the session.
 
 > This flow ensures that every stock issue is tracked from creation, through approval or rejection, and is always available for review in the system history.
-
-##
