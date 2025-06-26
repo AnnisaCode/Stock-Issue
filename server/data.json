@@ -1,0 +1,55 @@
+{
+  "stockIssues": [
+    {
+      "id": "1",
+      "issueNumber": "SI-2024-001",
+      "date": "2024-01-15",
+      "department": "Production",
+      "requestedBy": "Sarah Johnson",
+      "status": "approved",
+      "description": "Monthly production supplies",
+      "createdAt": "2024-01-15T08:00:00Z",
+      "details": [
+        {
+          "id": "1-1",
+          "itemCode": "ITM001",
+          "itemName": "Steel Rod 10mm",
+          "requestedQty": 100,
+          "approvedQty": 95,
+          "unit": "pcs",
+          "remarks": "Quality checked"
+        },
+        {
+          "id": "1-2",
+          "itemCode": "ITM002",
+          "itemName": "Welding Wire",
+          "requestedQty": 50,
+          "approvedQty": 50,
+          "unit": "kg",
+          "remarks": "Standard quality"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "issueNumber": "SI-2024-002",
+      "date": "2024-01-16",
+      "department": "Maintenance",
+      "requestedBy": "Mike Chen",
+      "status": "approved",
+      "description": "Equipment maintenance supplies",
+      "createdAt": "2024-01-16T09:30:00Z",
+      "details": [
+        {
+          "id": "2-1",
+          "itemCode": "MTN001",
+          "itemName": "Engine Oil SAE 40",
+          "requestedQty": 20,
+          "approvedQty": 0,
+          "unit": "liters",
+          "remarks": "Pending approval"
+        }
+      ]
+    }
+  ]
+}
