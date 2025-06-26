@@ -6,11 +6,11 @@
   "scripts": {
     "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
     "dev:frontend": "vite",
-    "dev:backend": "node api/index.js",
+    "dev:backend": "node server/index.js",
     "build": "vue-tsc -b && vite build",
     "preview": "vite preview",
     "build:backend": "echo 'Backend build complete'",
-    "start": "node api/index.js"
+    "start": "node server/index.js"
   },
   "dependencies": {
     "vue": "^3.4.38",
