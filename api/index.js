@@ -245,7 +245,9 @@ app.delete('/api/stockissue/:id/details/:detailId', async (req, res) => {
 
 // Initialize data and start server
 initializeData().then(() => {
-    app.listen(PORT, () => {
-        console.log(`Server running on http://localhost:${PORT}`);
-    });
+    // app.listen(PORT, () => {
+    //   console.log(`Server running on http://localhost:${PORT}`);
+    // });
 });
+
+export default app;
