@@ -93,7 +93,7 @@ async function writeData(data) {
 // Routes
 
 // Get all stock issues
-app.get('/api/stockissue', async (req, res) => {
+app.get('/stockissue', async (req, res) => {
     try {
         const data = await readData();
         res.json(data.stockIssues);
@@ -103,7 +103,7 @@ app.get('/api/stockissue', async (req, res) => {
 });
 
 // Get single stock issue
-app.get('/api/stockissue/:id', async (req, res) => {
+app.get('/stockissue/:id', async (req, res) => {
     try {
         const data = await readData();
         const stockIssue = data.stockIssues.find(si => si.id === req.params.id);
@@ -117,7 +117,7 @@ app.get('/api/stockissue/:id', async (req, res) => {
 });
 
 // Create new stock issue
-app.post('/api/stockissue', async (req, res) => {
+app.post('/stockissue', async (req, res) => {
     try {
         const data = await readData();
         const newStockIssue = {
@@ -135,7 +135,7 @@ app.post('/api/stockissue', async (req, res) => {
 });
 
 // Update stock issue
-app.put('/api/stockissue/:id', async (req, res) => {
+app.put('/stockissue/:id', async (req, res) => {
     try {
         const data = await readData();
         const index = data.stockIssues.findIndex(si => si.id === req.params.id);
@@ -151,7 +151,7 @@ app.put('/api/stockissue/:id', async (req, res) => {
 });
 
 // Delete stock issue
-app.delete('/api/stockissue/:id', async (req, res) => {
+app.delete('/stockissue/:id', async (req, res) => {
     try {
         const data = await readData();
         const index = data.stockIssues.findIndex(si => si.id === req.params.id);
@@ -167,7 +167,7 @@ app.delete('/api/stockissue/:id', async (req, res) => {
 });
 
 // Get stock issue details
-app.get('/api/stockissue/:id/details', async (req, res) => {
+app.get('/stockissue/:id/details', async (req, res) => {
     try {
         const data = await readData();
         const stockIssue = data.stockIssues.find(si => si.id === req.params.id);
@@ -181,7 +181,7 @@ app.get('/api/stockissue/:id/details', async (req, res) => {
 });
 
 // Add detail to stock issue
-app.post('/api/stockissue/:id/details', async (req, res) => {
+app.post('/stockissue/:id/details', async (req, res) => {
     try {
         const data = await readData();
         const stockIssue = data.stockIssues.find(si => si.id === req.params.id);
@@ -203,8 +203,8 @@ app.post('/api/stockissue/:id/details', async (req, res) => {
     }
 });
 
-// Update detail
-app.put('/api/stockissue/:id/details/:detailId', async (req, res) => {
+// Update detail in stock issue
+app.put('/stockissue/:id/details/:detailId', async (req, res) => {
     try {
         const data = await readData();
         const stockIssue = data.stockIssues.find(si => si.id === req.params.id);
@@ -223,8 +223,8 @@ app.put('/api/stockissue/:id/details/:detailId', async (req, res) => {
     }
 });
 
-// Delete detail
-app.delete('/api/stockissue/:id/details/:detailId', async (req, res) => {
+// Delete detail from stock issue
+app.delete('/stockissue/:id/details/:detailId', async (req, res) => {
     try {
         const data = await readData();
         const stockIssue = data.stockIssues.find(si => si.id === req.params.id);
