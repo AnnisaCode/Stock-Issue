@@ -52,15 +52,75 @@
       ]
     },
     {
-      "id": "a943e853-04d6-4f34-9b90-a57e521cd7b1",
-      "issueNumber": "1",
-      "date": "2025-06-26",
-      "department": "Finace",
-      "requestedBy": "Annisa",
+      "id": "3",
+      "issueNumber": "SI-2024-003",
+      "date": "2024-02-10",
+      "department": "IT Support",
+      "requestedBy": "David Lee",
+      "status": "rejected",
+      "description": "New hardware for developer team",
+      "createdAt": "2024-02-10T11:00:00Z",
+      "details": [
+        {
+          "id": "3-1",
+          "itemCode": "HW-050",
+          "itemName": "Mechanical Keyboard",
+          "requestedQty": 5,
+          "approvedQty": 0,
+          "unit": "units",
+          "remarks": "Rejected due to budget constraints"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "issueNumber": "SI-2024-004",
+      "date": "2024-02-20",
+      "department": "Marketing",
+      "requestedBy": "Emily White",
       "status": "pending",
-      "description": "",
-      "createdAt": "2025-06-26T09:39:07.592Z",
+      "description": "Promotional materials for Q2 campaign",
+      "createdAt": "2024-02-20T14:30:00Z",
+      "details": [
+        {
+          "id": "4-1",
+          "itemCode": "MKT-101",
+          "itemName": "Branded T-Shirts",
+          "requestedQty": 200,
+          "approvedQty": 0,
+          "unit": "pcs",
+          "remarks": "Pending budget approval"
+        },
+        {
+          "id": "4-2",
+          "itemCode": "MKT-102",
+          "itemName": "Sticker Sheets",
+          "requestedQty": 500,
+          "approvedQty": 0,
+          "unit": "sheets",
+          "remarks": "Pending design confirmation"
+        },
+        {
+          "id": "4-3",
+          "itemCode": "MKT-103",
+          "itemName": "Roll-up Banners",
+          "requestedQty": 10,
+          "approvedQty": 0,
+          "unit": "units",
+          "remarks": "Awaiting vendor quotes"
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "issueNumber": "SI-2024-005",
+      "date": "2024-03-01",
+      "department": "Human Resources",
+      "requestedBy": "Jessica Green",
+      "status": "approved",
+      "description": "Office supplies for new hires",
+      "createdAt": "2024-03-01T09:00:00Z",
       "details": []
     }
   ]
-} 
+}

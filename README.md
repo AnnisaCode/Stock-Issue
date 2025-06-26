@@ -1,16 +1,17 @@
 # Stock Issue Management System
 
-A beautiful full-stack web application for managing stock issue requests with a feminine/girly design aesthetic. Built with Vue 3, Vite, TailwindCSS for the frontend and Node.js/Express for the backend.
+A beautiful full-stack web application for managing stock issue requests with a feminine/girly design aesthetic. Built with Vue 3, Vite, and TailwindCSS for the frontend, and Node.js/Express for the backend.
 
 ## ✨ Features
 
-- **Authentication**: Dummy login system with frontend validation
-- **Dashboard**: Beautiful overview of all stock issues with search and filtering
-- **CRUD Operations**: Complete Create, Read, Update, Delete functionality for stock issues
-- **Detail Management**: Manage individual items within each stock issue
-- **Responsive Design**: Works perfectly on mobile, tablet, and desktop
-- **Feminine Design**: Soft colors, elegant UI with smooth animations
-- **REST API**: Full API implementation with JSON file storage
+- **Authentication**: Dummy login system with frontend validation.
+- **Dashboard**: Beautiful overview of all stock issues with search and filtering.
+- **CRUD Operations**: Complete Create, Read, Update, Delete functionality for stock issues.
+- **Detail Management**: Manage individual items within each stock issue.
+- **Responsive Design**: Works perfectly on mobile, tablet, and desktop.
+- **Feminine Design**: Soft colors, elegant UI with smooth animations.
+- **Local JSON Database**: All data is stored and retrieved from a local `data.json` file.
+- **Footer Credits**: Credits to AnnisaCode in the footer of all pages.
 
 ## 🎨 Design Features
 
@@ -29,43 +30,37 @@ A beautiful full-stack web application for managing stock issue requests with a 
 
 ### Installation
 
-1. Clone or download the project
+1. Clone or download the project.
 2. Install dependencies:
-```bash
-npm install
-```
-
-3. Start both frontend and backend:
-```bash
-npm run dev
-```
-
+   ```bash
+   npm install
+   ```
+3. Start the development server (frontend and backend):
+   ```bash
+   npm run dev
+   ```
 This will start:
-- Frontend: http://localhost:5173
-- Backend API: http://localhost:3001
+- Frontend: `http://localhost:5173`
+- Backend API: `http://localhost:3001`
 
 ### Demo Credentials
-- **Email**: admin@stockissue.com
-- **Password**: admin123
+- **Email**: `admin@stockissue.com`
+- **Password**: `admin123`
 
 ## 📁 Project Structure
 
 ```
-├── api/
-│   └── index.js                # Express server for Vercel Serverless Functions
+├── server/
+│   ├── index.js          # Express server with REST API
+│   └── data.json         # JSON database file
 ├── src/
 │   ├── components/
-│   │   ├── Login.vue           # Login page with authentication
-│   │   ├── Dashboard.vue       # Main dashboard with stock issues list
-│   │   └── StockIssueDetail.vue # Detailed view with item management
-│   ├── App.vue                 # Root component
-│   ├── main.ts                 # Application entry point with routing
-│   └── style.css               # Global styles and themes
-├── server/
-│   └── data.json               # JSON database file (used by API)
-├── package.json                # Dependencies and scripts
-├── tailwind.config.js          # TailwindCSS configuration
-└── vite.config.ts              # Vite configuration with proxy
+│   │   ├── Login.vue
+│   │   ├── Dashboard.vue
+│   │   └── StockIssueDetail.vue
+│   └── ...
+├── package.json
+└── ...
 ```
 
 ## 🛠 API Endpoints
@@ -109,17 +104,6 @@ This will start:
 - ✅ Environment configuration
 - ✅ Vercel deployment ready
 
-## 🚀 Deployment
-
-This project is configured for easy deployment on **Vercel**.
-
-1.  **Connect your GitHub repository to Vercel.**
-2.  Vercel will automatically detect that it's a **Vite** project.
-3.  Vercel will also automatically find the Express app in the `api` directory and deploy it as a **Serverless Function**.
-4.  No extra configuration is needed. Just click **Deploy**!
-
-The application is structured to be easily deployable on Vercel with proper configuration for both frontend and backend.
-
 ## 🎨 Color Palette
 
 - **Primary**: Purple gradient (#d946ef to #c026d3)
@@ -138,12 +122,11 @@ The application is structured to be easily deployable on Vercel with proper conf
 
 ## 🔧 Development Scripts
 
-- `npm run dev` - Start both frontend and backend in development mode
-- `npm run dev:frontend` - Start only frontend development server
-- `npm run dev:backend` - Start only backend server (`node api/index.js`)
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
-- `npm start` - Start production server (for non-Vercel environments)
+- `npm run dev`: Start both frontend and backend for development.
+- `npm run dev:frontend`: Start only the frontend development server.
+- `npm run dev:backend`: Start only the backend server (`node server/index.js`).
+- `npm run build`: Build the frontend for production.
+- `npm start`: Run the backend server for production.
 
 ## 📋 Test Case Requirements Met
 
@@ -162,7 +145,7 @@ The application is structured to be easily deployable on Vercel with proper conf
 ✅ Vercel deployment ready  
 ✅ Clean project structure  
 
-This project demonstrates modern full-stack development practices with a beautiful, responsive user interface and robust backend API.
+This project demonstrates modern full-stack development practices with a beautiful, responsive user interface and a robust local backend API.
 
 ## 🔄 System Flow
 

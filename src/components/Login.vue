@@ -1,6 +1,6 @@
 <template>
-  <div class="min-h-screen flex items-center justify-center p-4">
-    <div class="max-w-md w-full">
+  <div class="min-h-screen bg-gradient-to-br from-primary-50 to-secondary-100 flex flex-col justify-center items-center p-4">
+    <div class="w-full max-w-md">
       <div class="glass rounded-3xl p-8 shadow-2xl animate-fade-in-up">
         <!-- Logo/Header -->
         <div class="text-center mb-8">
@@ -73,6 +73,13 @@
         </div>
       </div>
     </div>
+    
+    <!-- Footer -->
+    <footer class="absolute bottom-4 text-center">
+      <p class="text-sm text-gray-500">
+        Crafted with ❤️ by <a href="https://github.com/AnnisaCode" target="_blank" class="font-semibold text-primary-600 hover:underline">AnnisaCode</a>
+      </p>
+    </footer>
   </div>
 </template>
 

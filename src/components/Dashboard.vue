@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen">
+  <div class="min-h-screen flex flex-col">
     <!-- Header -->
     <header class="glass border-b border-white/20 sticky top-0 z-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -29,7 +29,7 @@
     </header>
 
     <!-- Main Content -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow">
       <!-- Page Title -->
       <div class="mb-8">
         <h2 class="text-3xl font-bold text-gray-900 mb-2">Stock Issues</h2>
@@ -138,6 +138,13 @@
         </div>
       </div>
     </main>
+    
+    <!-- Footer -->
+    <footer class="text-center py-4">
+      <p class="text-sm text-gray-500">
+        Crafted with ❤️ by <a href="https://github.com/AnnisaCode" target="_blank" class="font-semibold text-primary-600 hover:underline">AnnisaCode</a>
+      </p>
+    </footer>
 
     <!-- Create/Edit Modal -->
     <div v-if="showCreateModal || editingIssue" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
