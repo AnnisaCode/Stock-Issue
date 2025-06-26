@@ -199,18 +199,30 @@
 import { ref, onMounted, computed } from 'vue'
 import { useRouter } from 'vue-router'
 
+interface StockIssue {
+  id: string;
+  issueNumber: string;
+  date: string;
+  department: string;
+  requestedBy: string;
+  status: string;
+  description: string;
+  details?: any[];
+}
+
 const router = useRouter()
 
 // State
-const stockIssues = ref([])
+declare const stockIssues: any;
+const stockIssues = ref<StockIssue[]>([])
 const loading = ref(true)
 const searchQuery = ref('')
 const showCreateModal = ref(false)
-const editingIssue = ref(null)
+const editingIssue = ref<StockIssue | null>(null)
 const userEmail = ref(localStorage.getItem('userEmail') || '')
 
 // Form data
-const formData = ref({
+const formData = ref<Omit<StockIssue, 'id' | 'details'>>({
   issueNumber: '',
   date: '',
   department: '',
@@ -222,9 +234,8 @@ const formData = ref({
 // Computed
 const filteredIssues = computed(() => {
   if (!searchQuery.value) return stockIssues.value
-  
   const query = searchQuery.value.toLowerCase()
-  return stockIssues.value.filter(issue => 
+  return stockIssues.value.filter((issue: StockIssue) => 
     issue.issueNumber.toLowerCase().includes(query) ||
     issue.department.toLowerCase().includes(query) ||
     issue.requestedBy.toLowerCase().includes(query) ||
@@ -249,15 +260,12 @@ const saveIssue = async () => {
     const url = editingIssue.value 
       ? `/api/stockissue/${editingIssue.value.id}`
       : '/api/stockissue'
-    
     const method = editingIssue.value ? 'PUT' : 'POST'
-    
     const response = await fetch(url, {
       method,
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData.value)
     })
-    
     if (response.ok) {
       await fetchStockIssues()
       closeModal()
@@ -267,19 +275,18 @@ const saveIssue = async () => {
   }
 }
 
-const editIssue = (issue) => {
+const editIssue = (issue: StockIssue) => {
   editingIssue.value = issue
   formData.value = { ...issue }
   showCreateModal.value = false
 }
 
-const deleteIssue = async (id) => {
+const deleteIssue = async (id: string) => {
   if (confirm('Are you sure you want to delete this stock issue?')) {
     try {
       const response = await fetch(`/api/stockissue/${id}`, {
         method: 'DELETE'
       })
-      
       if (response.ok) {
         await fetchStockIssues()
       }
@@ -289,7 +296,7 @@ const deleteIssue = async (id) => {
   }
 }
 
-const viewDetails = (id) => {
+const viewDetails = (id: string) => {
   router.push(`/stockissue/${id}`)
 }
 
@@ -312,7 +319,7 @@ const logout = () => {
   router.push('/login')
 }
 
-const formatDate = (dateString) => {
+const formatDate = (dateString: string) => {
   return new Date(dateString).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'short',
@@ -320,7 +327,7 @@ const formatDate = (dateString) => {
   })
 }
 
-const getStatusClass = (status) => {
+const getStatusClass = (status: string) => {
   switch (status) {
     case 'approved': return 'status-approved'
     case 'pending': return 'status-pending'

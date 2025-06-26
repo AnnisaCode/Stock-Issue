@@ -232,23 +232,42 @@
 import { ref, onMounted } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 
+interface StockIssueDetail {
+  id: string;
+  itemCode: string;
+  itemName: string;
+  requestedQty: number;
+  approvedQty: number;
+  unit: string;
+  remarks: string;
+}
+
+interface StockIssue {
+  id: string;
+  issueNumber: string;
+  date: string;
+  department: string;
+  requestedBy: string;
+  status: string;
+  description: string;
+  details: StockIssueDetail[];
+}
+
 const router = useRouter()
 const route = useRoute()
 
 // Props
-const props = defineProps<{
-  id: string
-}>()
+const props = defineProps<{ id: string }>()
 
 // State
-const stockIssue = ref(null)
-const details = ref([])
+const stockIssue = ref<StockIssue | null>(null)
+const details = ref<StockIssueDetail[]>([])
 const loading = ref(true)
 const showAddDetailModal = ref(false)
-const editingDetail = ref(null)
+const editingDetail = ref<StockIssueDetail | null>(null)
 
 // Form data
-const detailFormData = ref({
+const detailFormData = ref<Omit<StockIssueDetail, 'id'>>({
   itemCode: '',
   itemName: '',
   requestedQty: 0,
@@ -262,8 +281,9 @@ const fetchStockIssue = async () => {
   try {
     const response = await fetch(`/api/stockissue/${props.id}`)
     if (response.ok) {
-      stockIssue.value = await response.json()
-      details.value = stockIssue.value.details || []
+      const data: StockIssue = await response.json()
+      stockIssue.value = data
+      details.value = data.details || []
     }
   } catch (error) {
     console.error('Failed to fetch stock issue:', error)
@@ -277,15 +297,12 @@ const saveDetail = async () => {
     const url = editingDetail.value 
       ? `/api/stockissue/${props.id}/details/${editingDetail.value.id}`
       : `/api/stockissue/${props.id}/details`
-    
     const method = editingDetail.value ? 'PUT' : 'POST'
-    
     const response = await fetch(url, {
       method,
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(detailFormData.value)
     })
-    
     if (response.ok) {
       await fetchStockIssue()
       closeDetailModal()
@@ -295,19 +312,18 @@ const saveDetail = async () => {
   }
 }
 
-const editDetail = (detail) => {
+const editDetail = (detail: StockIssueDetail) => {
   editingDetail.value = detail
   detailFormData.value = { ...detail }
   showAddDetailModal.value = false
 }
 
-const deleteDetail = async (detailId) => {
+const deleteDetail = async (detailId: string) => {
   if (confirm('Are you sure you want to delete this item?')) {
     try {
       const response = await fetch(`/api/stockissue/${props.id}/details/${detailId}`, {
         method: 'DELETE'
       })
-      
       if (response.ok) {
         await fetchStockIssue()
       }
@@ -340,7 +356,7 @@ const logout = () => {
   router.push('/login')
 }
 
-const formatDate = (dateString) => {
+const formatDate = (dateString: string) => {
   return new Date(dateString).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
@@ -348,7 +364,7 @@ const formatDate = (dateString) => {
   })
 }
 
-const getStatusClass = (status) => {
+const getStatusClass = (status: string) => {
   switch (status) {
     case 'approved': return 'status-approved'
     case 'pending': return 'status-pending'
